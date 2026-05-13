@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Guzman Outdoors LLC — Landscaping, Lawn & Tree Service · Williamston, MI</title>
+<meta name="description" content="Guzman Outdoors LLC delivers top-quality landscaping, mulching, lawn care and tree service across Williamston, Webberville, Mason, Bath, Delhi and Lansing Charter Townships, MI. Request a free quote." />
+<meta name="theme-color" content="#1f3d12" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f3d12'/%3E%3Cpath d='M16 6c-4 4-6 8-6 12a6 6 0 0 0 12 0c0-4-2-8-6-12z' fill='%23d4a64a'/%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<link rel="stylesheet" href="https://unpkg.com/@geoman-io/leaflet-geoman-free@2.15.0/dist/leaflet-geoman.css" />
+
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<!-- Top banner -->
+<div class="banner">
+  <div class="banner-inner">
+    <span class="banner-dot" aria-hidden="true"></span>
+    <span>Now booking spring &amp; summer projects in Williamston and surrounding areas</span>
+    <a href="#quote" class="banner-link">Get a free quote →</a>
+  </div>
+</div>
+
+<!-- Nav -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top" aria-label="Guzman Outdoors home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" width="36" height="36"><circle cx="20" cy="20" r="20" fill="#1f3d12"/><path d="M20 8c-5 5-8 10-8 15a8 8 0 0 0 16 0c0-5-3-10-8-15z" fill="#d4a64a"/><path d="M20 22v8" stroke="#1f3d12" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </span>
+      <span class="brand-text">
+        <span class="brand-name">Guzman Outdoors</span>
+        <span class="brand-sub">Landscaping · Lawn · Tree</span>
+      </span>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#calculator">Acreage Tool</a>
+      <a href="#service-area">Service Area</a>
+      <a href="#work">Our Work</a>
+      <a href="#about">About</a>
+    </nav>
+
+    <div class="nav-cta">
+      <a href="tel:+15175550000" class="link-muted" aria-label="Call Guzman Outdoors">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7a2 2 0 0 1 1.72 2z"/></svg>
+        <span>(517) 555-0000</span>
+      </a>
+      <a href="#quote" class="btn btn-primary">Free Quote</a>
+    </div>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">
+        <span class="eyebrow-bar"></span>
+        Williamston, MI · Family owned
+      </span>
+      <h1 class="display">
+        Lawns kept sharp.<br/>
+        Yards made <em>beautiful.</em>
+      </h1>
+      <p class="lede">
+        Guzman Outdoors LLC is a reliable landscaping contractor serving
+        Williamston and the surrounding mid-Michigan area — mulching,
+        modern front-yard design, full-property lawn care and tree work,
+        delivered with the kind of craft that holds up through the seasons.
+      </p>
+      <div class="hero-ctas">
+        <a href="#quote" class="btn btn-primary btn-lg">Request a free quote</a>
+        <a href="#calculator" class="btn btn-ghost btn-lg">
+          Measure your yard
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+
+      <dl class="hero-stats">
+        <div><dt>Service area</dt><dd>6+ townships</dd></div>
+        <div><dt>Avg. response</dt><dd>Same day</dd></div>
+        <div><dt>Quote</dt><dd>Always free</dd></div>
+      </dl>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hero-photo hero-photo-main">
+        <img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1200&q=80" alt="Freshly mulched modern front yard with stone walkway" loading="eager" />
+        <div class="hero-photo-tag">
+          <span class="tag-dot"></span> Front yard refresh · Williamston
+        </div>
+      </div>
+      <div class="hero-photo hero-photo-side">
+        <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=900&q=80" alt="Manicured lawn with mature trees" loading="lazy" />
+      </div>
+      <div class="hero-photo hero-photo-mini">
+        <img src="https://images.unsplash.com/photo-1597844808175-c25556e8b9e1?auto=format&fit=crop&w=600&q=80" alt="Mulch detail" loading="lazy" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Trust strip -->
+  <div class="trust">
+    <span class="trust-label">Trusted across mid-Michigan</span>
+    <ul class="trust-list">
+      <li>Williamston</li><li>Webberville</li><li>Mason</li>
+      <li>Delhi Twp.</li><li>Bath Twp.</li><li>Lansing Twp.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Services -->
+<section id="services" class="section">
+  <div class="section-head">
+    <span class="kicker">Services</span>
+    <h2 class="h2">Everything outside the front door.</h2>
+    <p class="section-lede">
+      From a clean weekly cut to a full front-yard transformation — one crew,
+      one phone number, one bill.
+    </p>
+  </div>
+
+  <div class="services-bento">
+    <article class="svc svc-feature">
+      <div class="svc-media">
+        <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=1200&q=80" alt="Modern front yard landscaping" loading="lazy" />
+      </div>
+      <div class="svc-body">
+        <span class="svc-num">01</span>
+        <h3 class="svc-title">Landscaping &amp; front-yard design</h3>
+        <p>Modern front-yard layouts, plant beds, stone borders and complete
+          curb-appeal builds tailored to your home.</p>
+        <ul class="svc-tags">
+          <li>Front yard design</li>
+          <li>Modern landscaping</li>
+          <li>Edging &amp; borders</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="svc">
+      <div class="svc-body">
+        <span class="svc-num">02</span>
+        <h3 class="svc-title">Mulching</h3>
+        <p>Fresh mulch beds — installed evenly, weed-blocked underneath, no
+          tracked-up sidewalks when we leave.</p>
+      </div>
+    </article>
+
+    <article class="svc">
+      <div class="svc-body">
+        <span class="svc-num">03</span>
+        <h3 class="svc-title">Lawn care</h3>
+        <p>Mowing, trimming, edging and seasonal cleanups on weekly or
+          biweekly schedules.</p>
+      </div>
+    </article>
+
+    <article class="svc">
+      <div class="svc-body">
+        <span class="svc-num">04</span>
+        <h3 class="svc-title">Tree service</h3>
+        <p>Trimming, shaping, removal and stump work — careful on the cleanup,
+          honest on the quote.</p>
+      </div>
+    </article>
+
+    <article class="svc svc-wide">
+      <div class="svc-body">
+        <span class="svc-num">05</span>
+        <h3 class="svc-title">General property work</h3>
+        <p>Seasonal cleanups, leaf hauling, brush clearing and the small
+          jobs that no one else wants to show up for.</p>
+      </div>
+      <div class="svc-media svc-media-side">
+        <img src="https://images.unsplash.com/photo-1601928435875-e7b2d3b5be21?auto=format&fit=crop&w=900&q=80" alt="Property cleanup work" loading="lazy" />
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- Acreage Calculator -->
+<section id="calculator" class="section section-tint">
+  <div class="section-head">
+    <span class="kicker">Smart Acreage Tool</span>
+    <h2 class="h2">Measure your property in 30 seconds.</h2>
+    <p class="section-lede">
+      Type your address, then trace the area you want serviced. Drag corners
+      to fine-tune, or remove a section if it overshoots. We use the result
+      to give you a faster, more accurate quote.
+    </p>
+  </div>
+
+  <div class="calc">
+    <div class="calc-controls">
+      <label class="calc-field">
+        <span class="calc-label">Property address</span>
+        <div class="calc-input-row">
+          <input type="text" id="addressInput" placeholder="123 Grand River Ave, Williamston, MI" autocomplete="street-address" />
+          <button type="button" class="btn btn-primary" id="findAddressBtn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+            Locate
+          </button>
+        </div>
+        <p class="calc-hint" id="addressHint">We use OpenStreetMap to find your address — no account needed.</p>
+      </label>
+
+      <div class="calc-actions">
+        <button type="button" class="chip chip-primary" id="drawBtn" disabled>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19 7-7 3 3-7 7-3-3z"/><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="m2 2 7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+          Draw area
+        </button>
+        <button type="button" class="chip" id="addBtn" disabled>+ Add another area</button>
+        <button type="button" class="chip" id="undoBtn" disabled>Undo last point</button>
+        <button type="button" class="chip chip-danger" id="clearBtn" disabled>Clear all</button>
+      </div>
+
+      <div class="calc-readout">
+        <div class="readout-row">
+          <span class="readout-label">Total area</span>
+          <span class="readout-value" id="areaSqFt">0 sq ft</span>
+        </div>
+        <div class="readout-row">
+          <span class="readout-label">Acreage</span>
+          <span class="readout-value mono" id="areaAcres">0.000 ac</span>
+        </div>
+        <div class="readout-row readout-row-meta">
+          <span class="readout-label">Sections drawn</span>
+          <span class="readout-value mono" id="sectionCount">0</span>
+        </div>
+
+        <div class="readout-list" id="sectionList" aria-live="polite"></div>
+      </div>
+
+      <button type="button" class="btn btn-primary btn-block" id="sendToQuote" disabled>
+        Send this measurement to my quote
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+
+      <details class="calc-help">
+        <summary>How does this work?</summary>
+        <p>
+          Searching an address centers a satellite view on your property. Hit
+          <strong>Draw area</strong> and click around the section of the yard
+          you want serviced — finish by clicking the first point. You can drag
+          any corner to fix mistakes, hit <strong>Undo last point</strong> while
+          drawing, or remove a whole section with the trash icon on its row.
+          Acreage updates live.
+        </p>
+      </details>
+    </div>
+
+    <div class="calc-map-wrap">
+      <div id="map" class="calc-map" aria-label="Interactive property map"></div>
+      <div class="calc-legend">
+        <span><span class="legend-swatch swatch-poly"></span> Your selection</span>
+        <span><span class="legend-swatch swatch-vertex"></span> Drag a corner to adjust</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Service Area -->
+<section id="service-area" class="section">
+  <div class="section-head">
+    <span class="kicker">Service Area</span>
+    <h2 class="h2">Where we work.</h2>
+    <p class="section-lede">
+      Headquartered in Williamston, MI — and on the road across the surrounding
+      townships.
+    </p>
+  </div>
+
+  <ul class="area-grid">
+    <li><span class="area-name">Williamston</span><span class="area-meta">Headquarters</span></li>
+    <li><span class="area-name">Webberville Village</span><span class="area-meta">10 mi east</span></li>
+    <li><span class="area-name">Delhi Charter Twp.</span><span class="area-meta">Holt area</span></li>
+    <li><span class="area-name">Mason</span><span class="area-meta">South of Lansing</span></li>
+    <li><span class="area-name">Bath Charter Twp.</span><span class="area-meta">North of Lansing</span></li>
+    <li><span class="area-name">Lansing Charter Twp.</span><span class="area-meta">Greater Lansing</span></li>
+    <li class="area-extra"><span class="area-name">+ Surrounding areas</span><span class="area-meta">Just ask — we travel</span></li>
+  </ul>
+</section>
+
+<!-- Work / Gallery -->
+<section id="work" class="section section-dark">
+  <div class="section-head section-head-on-dark">
+    <span class="kicker kicker-on-dark">Our Work</span>
+    <h2 class="h2">A few recent jobs.</h2>
+    <p class="section-lede">
+      More photos and project updates live on our Facebook page.
+    </p>
+  </div>
+
+  <div class="gallery">
+    <figure class="gallery-item gallery-tall">
+      <img src="https://images.unsplash.com/photo-1572893510862-2667dc4c0e87?auto=format&fit=crop&w=900&q=80" alt="Front-yard mulch bed install" loading="lazy" />
+      <figcaption>Front-yard mulch refresh</figcaption>
+    </figure>
+    <figure class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1599629954294-14df9ec8bc36?auto=format&fit=crop&w=900&q=80" alt="Edged walkway and bed line" loading="lazy" />
+      <figcaption>Edged walkway &amp; bed line</figcaption>
+    </figure>
+    <figure class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1558293842-c0fd3db86157?auto=format&fit=crop&w=900&q=80" alt="Mowed and trimmed yard" loading="lazy" />
+      <figcaption>Weekly lawn care</figcaption>
+    </figure>
+    <figure class="gallery-item gallery-wide">
+      <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=1400&q=80" alt="Mature tree pruning project" loading="lazy" />
+      <figcaption>Tree shaping &amp; cleanup</figcaption>
+    </figure>
+  </div>
+
+  <a href="https://www.facebook.com/" target="_blank" rel="noopener" class="link-on-dark">
+    See more on Facebook
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+  </a>
+</section>
+
+<!-- About -->
+<section id="about" class="section about">
+  <div class="about-grid">
+    <div>
+      <span class="kicker">About</span>
+      <h2 class="h2">A small crew that shows up.</h2>
+      <p>
+        Guzman Outdoors LLC is a family-run landscaping contractor based in
+        Williamston, MI. We focus on the part most companies cut corners on:
+        the finish. Edged beds, clean borders, no debris left behind, no
+        chasing us to come back.
+      </p>
+      <p>
+        Whether it's a recurring mow or a full front-yard rebuild, we'll come
+        out, listen, and put together an honest quote — and the quote is
+        always free.
+      </p>
+      <div class="about-points">
+        <div><strong>Reliable.</strong> Same crew, every visit.</div>
+        <div><strong>Affordable.</strong> Quotes priced for the area, not the city.</div>
+        <div><strong>Professional.</strong> Insured and licensed.</div>
+      </div>
+    </div>
+    <aside class="about-card">
+      <div class="about-card-row">
+        <span class="about-card-label">Call us</span>
+        <a class="about-card-value" href="tel:+15175550000">(517) 555-0000</a>
+      </div>
+      <div class="about-card-row">
+        <span class="about-card-label">Email</span>
+        <a class="about-card-value" href="mailto:hello@guzmanoutdoors.com">hello@guzmanoutdoors.com</a>
+      </div>
+      <div class="about-card-row">
+        <span class="about-card-label">Hours</span>
+        <span class="about-card-value">Mon–Sat · 7a–7p</span>
+      </div>
+      <div class="about-card-row">
+        <span class="about-card-label">Facebook</span>
+        <a class="about-card-value" href="https://www.facebook.com/" target="_blank" rel="noopener">@GuzmanOutdoorsLLC</a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- Quote Form -->
+<section id="quote" class="section section-tint quote">
+  <div class="quote-grid">
+    <div class="quote-intro">
+      <span class="kicker">Free Quote</span>
+      <h2 class="h2">Tell us about the job.</h2>
+      <p>
+        Fill this out and we'll get back to you — usually same day. If you
+        used the acreage tool above, the measurement is already attached.
+      </p>
+
+      <ul class="quote-steps">
+        <li><span class="step-n">1</span><div><strong>Send the form.</strong> Tell us what you need.</div></li>
+        <li><span class="step-n">2</span><div><strong>We'll call or text.</strong> Confirm details, schedule a look.</div></li>
+        <li><span class="step-n">3</span><div><strong>Free written quote.</strong> No pressure, no surprises.</div></li>
+      </ul>
+    </div>
+
+    <form class="quote-form" id="quoteForm" novalidate>
+      <div class="form-row">
+        <label class="field">
+          <span class="field-label">Full name</span>
+          <input type="text" name="name" id="f_name" required autocomplete="name" placeholder="Jasmin Ortega" />
+          <span class="field-error" data-for="f_name"></span>
+        </label>
+        <label class="field">
+          <span class="field-label">Phone</span>
+          <input type="tel" name="phone" id="f_phone" required autocomplete="tel" placeholder="(517) 555-0142" />
+          <span class="field-error" data-for="f_phone"></span>
+        </label>
+      </div>
+
+      <div class="form-row">
+        <label class="field">
+          <span class="field-label">Email <span class="field-opt">(optional)</span></span>
+          <input type="email" name="email" id="f_email" autocomplete="email" placeholder="you@example.com" />
+        </label>
+        <label class="field">
+          <span class="field-label">Service address</span>
+          <input type="text" name="address" id="f_address" required autocomplete="street-address" placeholder="Street, City, MI" />
+          <span class="field-error" data-for="f_address"></span>
+        </label>
+      </div>
+
+      <fieldset class="field-group">
+        <legend class="field-label">What do you need? <span class="field-opt">(pick any)</span></legend>
+        <div class="checks">
+          <label class="check"><input type="checkbox" name="services" value="Landscaping" /><span>Landscaping</span></label>
+          <label class="check"><input type="checkbox" name="services" value="Mulching" /><span>Mulching</span></label>
+          <label class="check"><input type="checkbox" name="services" value="Front yard design" /><span>Front yard design</span></label>
+          <label class="check"><input type="checkbox" name="services" value="Lawn care" /><span>Lawn care</span></label>
+          <label class="check"><input type="checkbox" name="services" value="Tree service" /><span>Tree service</span></label>
+          <label class="check"><input type="checkbox" name="services" value="Cleanup" /><span>Cleanup</span></label>
+        </div>
+      </fieldset>
+
+      <div class="form-row">
+        <label class="field">
+          <span class="field-label">Timing</span>
+          <select name="timing" id="f_timing">
+            <option value="ASAP">As soon as possible</option>
+            <option value="Within 2 weeks">Within 2 weeks</option>
+            <option value="This month">This month</option>
+            <option value="Just exploring">Just getting quotes</option>
+          </select>
+        </label>
+        <label class="field">
+          <span class="field-label">Approximate area <span class="field-opt">(auto-fills from tool)</span></span>
+          <input type="text" name="measured_area" id="f_area" placeholder="e.g. 6,200 sq ft · 0.142 ac" readonly />
+        </label>
+      </div>
+
+      <label class="field">
+        <span class="field-label">Project details</span>
+        <textarea name="notes" id="f_notes" rows="4" placeholder="A few sentences about the property, the look you want, gates / access notes, anything we should know."></textarea>
+      </label>
+
+      <input type="text" name="company" tabindex="-1" autocomplete="off" class="honeypot" aria-hidden="true" />
+
+      <div class="form-foot">
+        <button type="submit" class="btn btn-primary btn-lg" id="quoteSubmit">
+          <span class="btn-label">Send my free quote request</span>
+          <svg class="btn-spinner" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M21 12a9 9 0 1 1-6.2-8.55"/></svg>
+        </button>
+        <p class="form-foot-note">We'll never share your info. Quotes are free and there's no obligation.</p>
+      </div>
+
+      <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" width="32" height="32"><circle cx="20" cy="20" r="20" fill="#d4a64a"/><path d="M20 8c-5 5-8 10-8 15a8 8 0 0 0 16 0c0-5-3-10-8-15z" fill="#1f3d12"/></svg>
+      </span>
+      <div>
+        <div class="footer-name">Guzman Outdoors LLC</div>
+        <div class="footer-tag">Landscaping · Lawn · Tree Service</div>
+      </div>
+    </div>
+
+    <div class="footer-cols">
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul>
+          <li>Landscaping</li>
+          <li>Mulching</li>
+          <li>Front yard design</li>
+          <li>Lawn care</li>
+          <li>Tree service</li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Service area</div>
+        <ul>
+          <li>Williamston, MI</li>
+          <li>Webberville Village</li>
+          <li>Delhi Charter Twp.</li>
+          <li>Mason · Bath · Lansing Twp.</li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul>
+          <li><a href="tel:+15175550000">(517) 555-0000</a></li>
+          <li><a href="mailto:hello@guzmanoutdoors.com">hello@guzmanoutdoors.com</a></li>
+          <li><a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-base">
+    <span>© <span id="year"></span> Guzman Outdoors LLC · Williamston, MI</span>
+    <span class="footer-fine">Licensed &amp; insured · Family owned</span>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@2.15.0/dist/leaflet-geoman.min.js"></script>
+<script src="js/calculator.js" defer></script>
+<script src="js/main.js" defer></script>
+</body>
+</html>
