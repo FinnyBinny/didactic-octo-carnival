@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Guzman Outdoors LLC — Landscaping, Lawn &amp; Tree Service · Williamston, MI</title>
-<meta name="description" content="Guzman Outdoors LLC: family-owned landscaping, mulching, lawn care and tree service across Williamston, Webberville, Mason, Bath, Delhi and Lansing Charter Townships, MI. Free quotes." />
-<meta name="theme-color" content="#2f5d3a" />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232f5d3a'/%3E%3Cpath d='M16 6c-3 0-5 2-5 5v9a5 5 0 0 0 10 0v-9c0-3-2-5-5-5z M8 14c-2 0-3 1-3 3v6a3 3 0 0 0 6 0 M24 12c2 0 3 1 3 3v8a3 3 0 0 1-6 0' fill='none' stroke='%23e0a629' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E" />
+<title>Guzman Outdoors — Landscaping, Lawn &amp; Tree · Williamston, MI</title>
+<meta name="description" content="Family-owned landscaping, mulching, lawn care and tree service across Williamston, Webberville, Mason, Bath, Delhi and Lansing Charter Townships, MI. Free quotes." />
+<meta name="theme-color" content="#FAF6EE" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='10' fill='%232A1F18'/%3E%3Cpath d='M16 7v17 M16 14c-3-1-5-3-6-7 3 1 5 3 6 7z M16 14c3-1 5-3 6-7-3 1-5 3-6 7z' stroke='%23FAF6EE' stroke-width='1.4' stroke-linecap='round' fill='none'/%3E%3C/svg%3E" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Outfit:wght@300;400;500;600;700&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&family=Caveat:wght@500;600&display=swap" rel="stylesheet" />
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
 <link rel="stylesheet" href="https://unpkg.com/@geoman-io/leaflet-geoman-free@2.15.0/dist/leaflet-geoman.css" />
@@ -19,536 +19,627 @@
 </head>
 <body>
 
-<!-- Papel picado banner -->
-<div class="papel" aria-hidden="true">
-  <svg viewBox="0 0 1400 70" preserveAspectRatio="xMidYMid slice">
-    <line x1="0" y1="4" x2="1400" y2="4" stroke="#3a2418" stroke-width="1.2"/>
-    <defs>
-      <g id="flag-a">
-        <path d="M0 4 L80 4 L80 50 L70 60 L60 50 L50 60 L40 50 L30 60 L20 50 L10 60 L0 50 Z"/>
-        <circle cx="40" cy="22" r="6" fill="#fff5e1"/>
-        <circle cx="22" cy="36" r="3.5" fill="#fff5e1"/>
-        <circle cx="58" cy="36" r="3.5" fill="#fff5e1"/>
-        <path d="M40 14 L44 22 L40 30 L36 22 Z" fill="#fff5e1"/>
-      </g>
-      <g id="flag-b">
-        <path d="M0 4 L80 4 L80 50 Q40 66 0 50 Z"/>
-        <path d="M40 14 q-10 0 -10 12 q0 12 10 12 q10 0 10 -12 q0 -12 -10 -12 z" fill="#fff5e1"/>
-        <circle cx="40" cy="26" r="4" fill="currentColor"/>
-        <rect x="14" y="38" width="6" height="6" fill="#fff5e1" transform="rotate(45 17 41)"/>
-        <rect x="60" y="38" width="6" height="6" fill="#fff5e1" transform="rotate(45 63 41)"/>
-      </g>
-      <g id="flag-c">
-        <path d="M0 4 L80 4 L80 50 L40 60 L0 50 Z"/>
-        <path d="M40 12 L46 26 L60 28 L50 38 L52 52 L40 46 L28 52 L30 38 L20 28 L34 26 Z" fill="#fff5e1"/>
-      </g>
-      <g id="flag-d">
-        <path d="M0 4 L80 4 L80 56 L0 56 Z"/>
-        <circle cx="40" cy="30" r="14" fill="none" stroke="#fff5e1" stroke-width="3"/>
-        <circle cx="40" cy="30" r="5" fill="#fff5e1"/>
-        <path d="M16 16 L22 22 M64 16 L58 22 M16 44 L22 38 M64 44 L58 38" stroke="#fff5e1" stroke-width="2.5" stroke-linecap="round"/>
-      </g>
-    </defs>
+<!-- Film-grain overlay -->
+<div class="grain" aria-hidden="true"></div>
 
-    <!-- 16 flags cycling through colors and shapes -->
-    <g class="flag" style="color:#d04a2c"><use href="#flag-a" x="0"/></g>
-    <g class="flag" style="color:#1e6091"><use href="#flag-b" x="88"/></g>
-    <g class="flag" style="color:#e0a629"><use href="#flag-c" x="176"/></g>
-    <g class="flag" style="color:#2f5d3a"><use href="#flag-d" x="264"/></g>
-    <g class="flag" style="color:#d63f6e"><use href="#flag-a" x="352"/></g>
-    <g class="flag" style="color:#1e6091"><use href="#flag-c" x="440"/></g>
-    <g class="flag" style="color:#d04a2c"><use href="#flag-b" x="528"/></g>
-    <g class="flag" style="color:#e0a629"><use href="#flag-d" x="616"/></g>
-    <g class="flag" style="color:#2f5d3a"><use href="#flag-a" x="704"/></g>
-    <g class="flag" style="color:#d63f6e"><use href="#flag-c" x="792"/></g>
-    <g class="flag" style="color:#1e6091"><use href="#flag-d" x="880"/></g>
-    <g class="flag" style="color:#d04a2c"><use href="#flag-b" x="968"/></g>
-    <g class="flag" style="color:#e0a629"><use href="#flag-a" x="1056"/></g>
-    <g class="flag" style="color:#2f5d3a"><use href="#flag-c" x="1144"/></g>
-    <g class="flag" style="color:#d63f6e"><use href="#flag-b" x="1232"/></g>
-    <g class="flag" style="color:#1e6091"><use href="#flag-d" x="1320"/></g>
-  </svg>
-</div>
-
-<!-- Top stripe (Mexican flag inspired, very subtle) -->
-<div class="tri-stripe" aria-hidden="true">
-  <span></span><span></span><span></span>
-</div>
-
-<!-- Nav -->
+<!-- Floating glass-pill navigation -->
 <header class="nav" id="nav">
-  <div class="nav-inner">
-    <a class="brand" href="#top" aria-label="Guzman Outdoors home">
-      <span class="brand-mark" aria-hidden="true">
-        <svg viewBox="0 0 44 44" width="40" height="40">
-          <circle cx="22" cy="22" r="21" fill="#2f5d3a"/>
-          <circle cx="22" cy="22" r="21" fill="none" stroke="#e0a629" stroke-width="1.5" stroke-dasharray="2 3"/>
-          <!-- agave / cactus -->
-          <path d="M22 10v22" stroke="#fff5e1" stroke-width="2" stroke-linecap="round"/>
-          <path d="M22 18c-4-1-7-4-8-9 4 1 7 4 8 9z" fill="#fff5e1"/>
-          <path d="M22 18c4-1 7-4 8-9-4 1-7 4-8 9z" fill="#fff5e1"/>
-          <path d="M22 24c-5 0-9-3-11-8 5 0 9 3 11 8z" fill="#fff5e1" opacity=".8"/>
-          <path d="M22 24c5 0 9-3 11-8-5 0-9 3-11 8z" fill="#fff5e1" opacity=".8"/>
-          <circle cx="22" cy="34" r="2" fill="#d04a2c"/>
-        </svg>
-      </span>
-      <span class="brand-text">
-        <span class="brand-name">Guzman Outdoors</span>
-        <span class="brand-sub">Landscaping · Lawn · Tree</span>
-      </span>
-    </a>
+  <a class="nav-brand" href="#top" aria-label="Guzman Outdoors home">
+    <span class="nav-mark" aria-hidden="true">
+      <svg viewBox="0 0 28 28">
+        <path d="M14 6v18 M14 14c-3-1-5-3-6-7 3 1 5 3 6 7z M14 14c3-1 5-3 6-7-3 1-5 3-6 7z M14 19c-4-1-7-3-9-7 4 1 7 3 9 7z M14 19c4-1 7-3 9-7-4 1-7 3-9 7z"
+              stroke="currentColor" stroke-width="1.25" stroke-linecap="round" fill="none"/>
+      </svg>
+    </span>
+    <span class="nav-brand-text">Guzman Outdoors</span>
+  </a>
 
-    <nav class="nav-links" aria-label="Primary">
-      <a href="#services">Services</a>
-      <a href="#calculator">Acreage Tool</a>
-      <a href="#service-area">Service Area</a>
-      <a href="#work">Our Work</a>
-      <a href="#about">About</a>
-    </nav>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="#services">Services</a>
+    <a href="#calculator">Acreage</a>
+    <a href="#service-area">Service area</a>
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+  </nav>
 
-    <div class="nav-cta">
-      <a href="tel:+15175550000" class="link-muted" aria-label="Call Guzman Outdoors">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7a2 2 0 0 1 1.72 2z"/></svg>
-        <span>(517) 555-0000</span>
-      </a>
-      <a href="#quote" class="btn btn-primary">Free Quote</a>
-    </div>
+  <a href="#quote" class="cta cta-sm">
+    <span class="cta-label">Free quote</span>
+    <span class="cta-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+    </span>
+  </a>
 
-    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span>
+  </button>
 </header>
+
+<!-- Mobile menu overlay -->
+<div class="nav-overlay" id="navOverlay" aria-hidden="true">
+  <nav>
+    <a href="#services" data-stagger="1">Services</a>
+    <a href="#calculator" data-stagger="2">Acreage</a>
+    <a href="#service-area" data-stagger="3">Service area</a>
+    <a href="#work" data-stagger="4">Work</a>
+    <a href="#about" data-stagger="5">About</a>
+    <a href="#quote" data-stagger="6" class="nav-overlay-cta">Free quote &nbsp;↗</a>
+  </nav>
+  <div class="nav-overlay-foot" data-stagger="7">
+    <span>(517) 555-0000</span>
+    <span>hello@guzmanoutdoors.com</span>
+  </div>
+</div>
 
 <main id="top">
 
-<!-- Hero -->
+<!-- ============================================================
+     HERO — Editorial split. Massive serif left, layered cards right.
+     ============================================================ -->
 <section class="hero">
-  <!-- Decorative Talavera tile pattern (corner) -->
-  <div class="hero-tile-bg" aria-hidden="true"></div>
-
-  <!-- Cactus illustrations -->
-  <svg class="cactus cactus-1" viewBox="0 0 100 160" aria-hidden="true">
-    <path d="M50 150 V60 Q50 40 50 30" stroke="#2f5d3a" stroke-width="22" stroke-linecap="round" fill="none"/>
-    <path d="M50 90 Q30 90 30 70 V55 Q30 50 35 50" stroke="#2f5d3a" stroke-width="14" stroke-linecap="round" fill="none"/>
-    <path d="M50 80 Q72 80 72 60 V42 Q72 36 66 36" stroke="#2f5d3a" stroke-width="14" stroke-linecap="round" fill="none"/>
-    <circle cx="50" cy="28" r="6" fill="#d63f6e"/>
-    <circle cx="35" cy="48" r="3.5" fill="#e0a629"/>
-    <line x1="50" y1="60" x2="50" y2="140" stroke="#1f3d12" stroke-width="0.8" stroke-dasharray="2 5" opacity=".5"/>
-  </svg>
-
   <div class="hero-grid">
     <div class="hero-copy">
-      <span class="eyebrow">
-        <span class="eyebrow-bar"></span>
-        Williamston, MI · Familia Guzmán
-      </span>
-      <h1 class="display">
-        Yards <em>cuidados</em><br/>
-        like our own.
+      <div class="eyebrow" data-reveal>
+        <span class="eyebrow-dot"></span>
+        Williamston, MI &nbsp;·&nbsp; <span class="i">Familia Guzmán</span>
+      </div>
+
+      <h1 class="display" data-reveal data-delay="100">
+        <span class="display-line">Yards crafted</span>
+        <span class="display-line">by family <em>hands.</em></span>
       </h1>
-      <p class="lede">
-        Guzman Outdoors LLC is a family-run landscaping contractor serving
-        Williamston and the surrounding mid-Michigan area — mulching,
+
+      <p class="lede" data-reveal data-delay="200">
+        A small, family-run landscaping crew based in Williamston — mulching,
         modern front-yard design, full-property lawn care and tree work,
         done with the kind of pride that shows in every edge.
       </p>
-      <div class="hero-ctas">
-        <a href="#quote" class="btn btn-primary btn-lg">Request a free quote</a>
-        <a href="#calculator" class="btn btn-ghost btn-lg">
-          Measure your yard
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+
+      <div class="hero-ctas" data-reveal data-delay="300">
+        <a href="#quote" class="cta cta-lg">
+          <span class="cta-label">Request a free quote</span>
+          <span class="cta-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </a>
+        <a href="#calculator" class="cta cta-ghost cta-lg">
+          <span class="cta-label">Measure your yard</span>
         </a>
       </div>
 
-      <dl class="hero-stats">
-        <div><dt>Service area</dt><dd>6+ townships</dd></div>
-        <div><dt>Avg. response</dt><dd>Same day</dd></div>
-        <div><dt>Quote</dt><dd>Siempre gratis</dd></div>
-      </dl>
+      <p class="hero-script" data-reveal data-delay="400">
+        <span class="script">¡Bienvenidos!</span> &nbsp;Free quotes — always.
+      </p>
     </div>
 
-    <div class="hero-visual" aria-hidden="true">
-      <div class="hero-photo hero-photo-main">
-        <img src="https://picsum.photos/seed/guzman-front-yard/1200/900" alt="Freshly mulched modern front yard" loading="eager" />
-        <div class="hero-photo-tag">
-          <span class="tag-dot"></span> Front yard refresh · Williamston
+    <div class="hero-visual" data-reveal data-delay="200" aria-hidden="true">
+      <figure class="hero-card hero-card-1">
+        <div class="bezel">
+          <div class="bezel-inner">
+            <img src="https://picsum.photos/seed/guzman-front-yard-9/1200/1500" alt="" loading="eager" />
+          </div>
+        </div>
+      </figure>
+      <figure class="hero-card hero-card-2">
+        <div class="bezel">
+          <div class="bezel-inner">
+            <img src="https://picsum.photos/seed/guzman-mulch-3/900/700" alt="" loading="lazy" />
+          </div>
+        </div>
+      </figure>
+      <figure class="hero-card hero-card-3">
+        <div class="bezel">
+          <div class="bezel-inner">
+            <img src="https://picsum.photos/seed/guzman-detail-2/700/700" alt="" loading="lazy" />
+          </div>
+        </div>
+      </figure>
+
+      <!-- Refined Talavera ornament instead of a flashy stamp -->
+      <svg class="ornament" viewBox="0 0 80 80" aria-hidden="true">
+        <circle cx="40" cy="40" r="38" fill="none" stroke="currentColor" stroke-width="0.6"/>
+        <circle cx="40" cy="40" r="28" fill="none" stroke="currentColor" stroke-width="0.6"/>
+        <path d="M40 12 L42 28 L40 30 L38 28 Z M40 68 L42 52 L40 50 L38 52 Z M12 40 L28 42 L30 40 L28 38 Z M68 40 L52 42 L50 40 L52 38 Z"
+              fill="currentColor"/>
+        <circle cx="40" cy="40" r="3" fill="currentColor"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Stats hairline row -->
+  <div class="hero-stats" data-reveal data-delay="500">
+    <div>
+      <span class="stat-label">Service area</span>
+      <span class="stat-value">6 townships</span>
+    </div>
+    <div>
+      <span class="stat-label">Avg. response</span>
+      <span class="stat-value">Same day</span>
+    </div>
+    <div>
+      <span class="stat-label">Quote</span>
+      <span class="stat-value">Siempre gratis</span>
+    </div>
+    <div>
+      <span class="stat-label">Crew</span>
+      <span class="stat-value">Familia</span>
+    </div>
+  </div>
+</section>
+
+<!-- Single refined ornament divider -->
+<div class="divider" aria-hidden="true">
+  <svg viewBox="0 0 200 24">
+    <line x1="0" y1="12" x2="78" y2="12" stroke="currentColor" stroke-width="0.6"/>
+    <circle cx="100" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="0.6"/>
+    <circle cx="100" cy="12" r="1.5" fill="currentColor"/>
+    <path d="M100 4 L101 10 L100 12 L99 10 Z M100 20 L101 14 L100 12 L99 14 Z M92 12 L98 13 L100 12 L98 11 Z M108 12 L102 13 L100 12 L102 11 Z" fill="currentColor"/>
+    <line x1="122" y1="12" x2="200" y2="12" stroke="currentColor" stroke-width="0.6"/>
+  </svg>
+</div>
+
+<!-- ============================================================
+     SERVICES — Asymmetric bento, double-bezel cards
+     ============================================================ -->
+<section id="services" class="section">
+  <header class="section-head" data-reveal>
+    <span class="eyebrow"><span class="eyebrow-dot"></span> Services &nbsp;·&nbsp; <span class="i">Lo que hacemos</span></span>
+    <h2 class="h2">Everything <em>outside</em><br/>the front door.</h2>
+    <p class="section-lede">
+      One crew. One phone number. One bill. From a clean weekly cut to a
+      full front-yard transformation.
+    </p>
+  </header>
+
+  <div class="bento">
+    <!-- Feature card -->
+    <article class="bento-cell bento-feature" data-reveal data-delay="100">
+      <div class="bezel">
+        <div class="bezel-inner">
+          <div class="bento-media">
+            <img src="https://picsum.photos/seed/guzman-landscape-2/1400/900" alt="" loading="lazy" />
+          </div>
+          <div class="bento-body">
+            <span class="bento-num">01 &nbsp;/&nbsp; Flagship</span>
+            <h3 class="bento-title">Landscaping &amp; front-yard design</h3>
+            <p>Modern front-yard layouts, plant beds, stone borders and
+              complete curb-appeal builds tailored to your home.</p>
+            <ul class="bento-tags">
+              <li>Modern landscaping</li>
+              <li>Front yard design</li>
+              <li>Edging &amp; borders</li>
+            </ul>
+          </div>
         </div>
       </div>
-      <div class="hero-photo hero-photo-side">
-        <img src="https://picsum.photos/seed/guzman-lawn/900/1100" alt="Manicured lawn with mature trees" loading="lazy" />
-      </div>
-      <div class="hero-photo hero-photo-mini">
-        <img src="https://picsum.photos/seed/guzman-mulch/600/600" alt="Fresh mulch detail" loading="lazy" />
-      </div>
+    </article>
 
-      <!-- Stamp badge -->
-      <div class="stamp">
-        <span class="stamp-top">¡Bienvenidos!</span>
-        <span class="stamp-mid">Family<br/>Owned</span>
-        <span class="stamp-bot">Est. Michigan</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Trust strip -->
-  <div class="trust">
-    <span class="trust-label">Aquí servimos · Trusted across mid-Michigan</span>
-    <ul class="trust-list">
-      <li>Williamston</li><li>Webberville</li><li>Mason</li>
-      <li>Delhi Twp.</li><li>Bath Twp.</li><li>Lansing Twp.</li>
-    </ul>
-  </div>
-</section>
-
-<!-- Tile divider -->
-<div class="tile-divider" aria-hidden="true"></div>
-
-<!-- Services -->
-<section id="services" class="section">
-  <div class="section-head">
-    <span class="kicker">Services · Lo que hacemos</span>
-    <h2 class="h2">Everything <em>outside</em> the front door.</h2>
-    <p class="section-lede">
-      From a clean weekly cut to a full front-yard transformation — one crew,
-      one phone number, one bill.
-    </p>
-  </div>
-
-  <div class="services-bento">
-    <article class="svc svc-feature">
-      <div class="svc-media">
-        <img src="https://picsum.photos/seed/guzman-landscape/1200/700" alt="Modern front yard landscaping" loading="lazy" />
-        <div class="svc-feature-tile" aria-hidden="true"></div>
-      </div>
-      <div class="svc-body">
-        <span class="svc-num">01</span>
-        <h3 class="svc-title">Landscaping &amp; front-yard design</h3>
-        <p>Modern front-yard layouts, plant beds, stone borders and complete
-          curb-appeal builds tailored to your home.</p>
-        <ul class="svc-tags">
-          <li>Front yard design</li>
-          <li>Modern landscaping</li>
-          <li>Edging &amp; borders</li>
-        </ul>
+    <article class="bento-cell bento-small bento-pos-2" data-reveal data-delay="200">
+      <div class="bezel">
+        <div class="bezel-inner bento-text-only">
+          <span class="bento-num">02</span>
+          <h3 class="bento-title">Mulching</h3>
+          <p>Fresh mulch beds — installed evenly, weed-blocked underneath,
+            sidewalks swept clean when we leave.</p>
+        </div>
       </div>
     </article>
 
-    <article class="svc">
-      <div class="svc-body">
-        <span class="svc-num">02</span>
-        <h3 class="svc-title">Mulching</h3>
-        <p>Fresh mulch beds — installed evenly, weed-blocked underneath,
-          sidewalks swept clean when we leave.</p>
+    <article class="bento-cell bento-small bento-pos-3" data-reveal data-delay="300">
+      <div class="bezel">
+        <div class="bezel-inner bento-text-only">
+          <span class="bento-num">03</span>
+          <h3 class="bento-title">Lawn care</h3>
+          <p>Mowing, trimming, edging and seasonal cleanups on weekly or
+            biweekly schedules.</p>
+        </div>
       </div>
     </article>
 
-    <article class="svc">
-      <div class="svc-body">
-        <span class="svc-num">03</span>
-        <h3 class="svc-title">Lawn care</h3>
-        <p>Mowing, trimming, edging and seasonal cleanups on weekly or
-          biweekly schedules.</p>
+    <article class="bento-cell bento-half bento-pos-4" data-reveal data-delay="200">
+      <div class="bezel">
+        <div class="bezel-inner bento-text-only">
+          <span class="bento-num">04</span>
+          <h3 class="bento-title">Tree service</h3>
+          <p>Trimming, shaping, removal and stump work — careful on the
+            cleanup, honest on the quote.</p>
+        </div>
       </div>
     </article>
 
-    <article class="svc">
-      <div class="svc-body">
-        <span class="svc-num">04</span>
-        <h3 class="svc-title">Tree service</h3>
-        <p>Trimming, shaping, removal and stump work — careful on the cleanup,
-          honest on the quote.</p>
-      </div>
-    </article>
-
-    <article class="svc svc-wide">
-      <div class="svc-body">
-        <span class="svc-num">05</span>
-        <h3 class="svc-title">General property work</h3>
-        <p>Seasonal cleanups, leaf hauling, brush clearing and the small
-          jobs that no one else wants to show up for.</p>
-      </div>
-      <div class="svc-media svc-media-side">
-        <img src="https://picsum.photos/seed/guzman-cleanup/900/700" alt="Property cleanup work" loading="lazy" />
+    <article class="bento-cell bento-half bento-pos-5" data-reveal data-delay="300">
+      <div class="bezel">
+        <div class="bezel-inner">
+          <div class="bento-media bento-media-side">
+            <img src="https://picsum.photos/seed/guzman-cleanup-3/900/700" alt="" loading="lazy" />
+          </div>
+          <div class="bento-body">
+            <span class="bento-num">05</span>
+            <h3 class="bento-title">General property work</h3>
+            <p>Seasonal cleanups, leaf hauling, brush clearing and the
+              small jobs no one else wants.</p>
+          </div>
+        </div>
       </div>
     </article>
   </div>
 </section>
 
-<!-- Acreage Calculator -->
+<!-- ============================================================
+     ACREAGE CALCULATOR
+     ============================================================ -->
 <section id="calculator" class="section section-tint">
-  <div class="section-head">
-    <span class="kicker">Smart Acreage Tool · Mide tu jardín</span>
-    <h2 class="h2">Measure your property in 30 seconds.</h2>
+  <header class="section-head" data-reveal>
+    <span class="eyebrow"><span class="eyebrow-dot"></span> Acreage tool &nbsp;·&nbsp; <span class="i">Mide tu jardín</span></span>
+    <h2 class="h2">Measure your property<br/><em>in 30 seconds.</em></h2>
     <p class="section-lede">
       Type your address, then trace the area you want serviced. Drag corners
       to fine-tune, or remove a section if it overshoots. We use the result
       to give you a faster, more accurate quote.
     </p>
-  </div>
+  </header>
 
-  <div class="calc">
-    <div class="calc-controls">
-      <label class="calc-field">
-        <span class="calc-label">Property address</span>
-        <div class="calc-input-row">
-          <input type="text" id="addressInput" placeholder="123 Grand River Ave, Williamston, MI" autocomplete="street-address" />
-          <button type="button" class="btn btn-primary" id="findAddressBtn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
-            Locate
+  <div class="calc" data-reveal data-delay="100">
+    <aside class="calc-controls">
+      <div class="bezel">
+        <div class="bezel-inner calc-controls-inner">
+          <label class="calc-field">
+            <span class="calc-label">Property address</span>
+            <div class="calc-input-row">
+              <input type="text" id="addressInput" placeholder="123 Grand River Ave, Williamston, MI" autocomplete="street-address" />
+              <button type="button" class="cta cta-icon-only" id="findAddressBtn" aria-label="Locate address">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+              </button>
+            </div>
+            <p class="calc-hint" id="addressHint">We use OpenStreetMap — no account needed.</p>
+          </label>
+
+          <div class="calc-actions">
+            <button type="button" class="chip chip-primary" id="drawBtn" disabled>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19 7-7 3 3-7 7-3-3z"/><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg>
+              Draw area
+            </button>
+            <button type="button" class="chip" id="addBtn" disabled>+ Add area</button>
+            <button type="button" class="chip" id="undoBtn" disabled>Undo point</button>
+            <button type="button" class="chip chip-danger" id="clearBtn" disabled>Clear all</button>
+          </div>
+
+          <div class="calc-readout">
+            <div class="readout-row readout-row-hero">
+              <span class="readout-label">Total area</span>
+              <span class="readout-value" id="areaSqFt">0 sq ft</span>
+            </div>
+            <div class="readout-row">
+              <span class="readout-label">Acreage</span>
+              <span class="readout-value mono" id="areaAcres">0.000 ac</span>
+            </div>
+            <div class="readout-row">
+              <span class="readout-label">Sections</span>
+              <span class="readout-value mono" id="sectionCount">0</span>
+            </div>
+
+            <div class="readout-list" id="sectionList" aria-live="polite"></div>
+          </div>
+
+          <button type="button" class="cta cta-full" id="sendToQuote" disabled>
+            <span class="cta-label">Send to my quote</span>
+            <span class="cta-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
           </button>
-        </div>
-        <p class="calc-hint" id="addressHint">We use OpenStreetMap to find your address — no account needed.</p>
-      </label>
 
-      <div class="calc-actions">
-        <button type="button" class="chip chip-primary" id="drawBtn" disabled>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19 7-7 3 3-7 7-3-3z"/><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg>
-          Draw area
-        </button>
-        <button type="button" class="chip" id="addBtn" disabled>+ Add another area</button>
-        <button type="button" class="chip" id="undoBtn" disabled>Undo last point</button>
-        <button type="button" class="chip chip-danger" id="clearBtn" disabled>Clear all</button>
+          <details class="calc-help">
+            <summary>How does this work?</summary>
+            <p>
+              Type your address and hit locate. The map zooms to your property
+              on satellite view. Click "Draw area" and then click around the
+              section of yard you want serviced — double-click finishes it.
+              Drag any corner to adjust, undo while drawing, or remove a
+              whole section from its row. Live square-footage updates.
+            </p>
+          </details>
+        </div>
       </div>
+    </aside>
 
-      <div class="calc-readout">
-        <div class="readout-row">
-          <span class="readout-label">Total area</span>
-          <span class="readout-value" id="areaSqFt">0 sq ft</span>
+    <div class="calc-map-shell">
+      <div class="bezel">
+        <div class="bezel-inner calc-map-inner">
+          <div id="map" class="calc-map" aria-label="Interactive property map"></div>
+          <div class="calc-legend">
+            <span><span class="legend-swatch swatch-poly"></span> Your selection</span>
+            <span><span class="legend-swatch swatch-vertex"></span> Drag corners</span>
+          </div>
+          <noscript>
+            <div class="calc-noscript">JavaScript is required for the acreage tool. Please enable it or call (517) 555-0000.</div>
+          </noscript>
         </div>
-        <div class="readout-row">
-          <span class="readout-label">Acreage</span>
-          <span class="readout-value mono" id="areaAcres">0.000 ac</span>
-        </div>
-        <div class="readout-row readout-row-meta">
-          <span class="readout-label">Sections drawn</span>
-          <span class="readout-value mono" id="sectionCount">0</span>
-        </div>
-
-        <div class="readout-list" id="sectionList" aria-live="polite"></div>
       </div>
-
-      <button type="button" class="btn btn-primary btn-block" id="sendToQuote" disabled>
-        Send this measurement to my quote
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </button>
-
-      <details class="calc-help">
-        <summary>How does this work?</summary>
-        <p>
-          Searching an address centers a satellite view on your property. Hit
-          <strong>Draw area</strong> and click around the section of the yard
-          you want serviced — finish by clicking the first point or
-          double-clicking. You can drag any corner to fix mistakes, hit
-          <strong>Undo last point</strong> while drawing, or remove a whole
-          section with the trash icon on its row. Acreage updates live.
-        </p>
-      </details>
-    </div>
-
-    <div class="calc-map-wrap">
-      <div id="map" class="calc-map" aria-label="Interactive property map"></div>
-      <div class="calc-legend">
-        <span><span class="legend-swatch swatch-poly"></span> Your selection</span>
-        <span><span class="legend-swatch swatch-vertex"></span> Drag a corner</span>
-      </div>
-      <noscript>
-        <div class="calc-noscript">JavaScript is required for the acreage tool. Please enable it or call us at (517) 555-0000.</div>
-      </noscript>
     </div>
   </div>
 </section>
 
-<!-- Service Area -->
+<!-- ============================================================
+     SERVICE AREA — Editorial list with hairlines
+     ============================================================ -->
 <section id="service-area" class="section">
-  <div class="section-head">
-    <span class="kicker">Service Area · Aquí trabajamos</span>
-    <h2 class="h2">Where we work.</h2>
-    <p class="section-lede">
-      Headquartered in Williamston, MI — and on the road across the surrounding
-      townships.
-    </p>
-  </div>
+  <div class="area-grid-wrap">
+    <header class="section-head" data-reveal>
+      <span class="eyebrow"><span class="eyebrow-dot"></span> Service area &nbsp;·&nbsp; <span class="i">Aquí trabajamos</span></span>
+      <h2 class="h2">Where we<br/><em>work.</em></h2>
+      <p class="section-lede">
+        Headquartered in Williamston, MI — and on the road across the
+        surrounding townships.
+      </p>
+    </header>
 
-  <ul class="area-grid">
-    <li><span class="area-name">Williamston</span><span class="area-meta">Headquarters</span></li>
-    <li><span class="area-name">Webberville Village</span><span class="area-meta">10 mi east</span></li>
-    <li><span class="area-name">Delhi Charter Twp.</span><span class="area-meta">Holt area</span></li>
-    <li><span class="area-name">Mason</span><span class="area-meta">South of Lansing</span></li>
-    <li><span class="area-name">Bath Charter Twp.</span><span class="area-meta">North of Lansing</span></li>
-    <li><span class="area-name">Lansing Charter Twp.</span><span class="area-meta">Greater Lansing</span></li>
-    <li class="area-extra"><span class="area-name">+ Surrounding areas</span><span class="area-meta">Just ask — we travel</span></li>
-  </ul>
+    <ul class="area-list" data-reveal data-delay="100">
+      <li>
+        <span class="area-num">01</span>
+        <span class="area-name">Williamston</span>
+        <span class="area-meta">Headquarters · Ingham County</span>
+      </li>
+      <li>
+        <span class="area-num">02</span>
+        <span class="area-name">Webberville Village</span>
+        <span class="area-meta">10 mi east</span>
+      </li>
+      <li>
+        <span class="area-num">03</span>
+        <span class="area-name">Delhi Charter Twp.</span>
+        <span class="area-meta">Holt area</span>
+      </li>
+      <li>
+        <span class="area-num">04</span>
+        <span class="area-name">Mason</span>
+        <span class="area-meta">South of Lansing</span>
+      </li>
+      <li>
+        <span class="area-num">05</span>
+        <span class="area-name">Bath Charter Twp.</span>
+        <span class="area-meta">North of Lansing</span>
+      </li>
+      <li>
+        <span class="area-num">06</span>
+        <span class="area-name">Lansing Charter Twp.</span>
+        <span class="area-meta">Greater Lansing</span>
+      </li>
+      <li class="area-list-extra">
+        <span class="area-num">+</span>
+        <span class="area-name">Surrounding areas</span>
+        <span class="area-meta">Just ask &mdash; we travel</span>
+      </li>
+    </ul>
+  </div>
 </section>
 
-<!-- Work / Gallery -->
+<!-- ============================================================
+     WORK — Z-axis cascade gallery
+     ============================================================ -->
 <section id="work" class="section section-dark">
-  <div class="section-head section-head-on-dark">
-    <span class="kicker kicker-on-dark">Our Work · Nuestro trabajo</span>
-    <h2 class="h2">A few recent jobs.</h2>
-    <p class="section-lede">
-      More photos and project updates live on our Facebook page.
-    </p>
+  <header class="section-head section-head-on-dark" data-reveal>
+    <span class="eyebrow eyebrow-on-dark"><span class="eyebrow-dot"></span> Selected work &nbsp;·&nbsp; <span class="i">Nuestro trabajo</span></span>
+    <h2 class="h2">A few <em>recent</em><br/>jobs.</h2>
+    <p class="section-lede">More on our Facebook — fresh photos every week.</p>
+  </header>
+
+  <div class="cascade">
+    <figure class="cascade-item cascade-1" data-reveal data-delay="100">
+      <div class="bezel bezel-dark">
+        <div class="bezel-inner">
+          <img src="https://picsum.photos/seed/guzman-job-1/900/1200" alt="" loading="lazy" />
+        </div>
+      </div>
+      <figcaption>Front-yard mulch refresh — Williamston</figcaption>
+    </figure>
+    <figure class="cascade-item cascade-2" data-reveal data-delay="200">
+      <div class="bezel bezel-dark">
+        <div class="bezel-inner">
+          <img src="https://picsum.photos/seed/guzman-job-2/1000/700" alt="" loading="lazy" />
+        </div>
+      </div>
+      <figcaption>Edged walkway &amp; bed line — Mason</figcaption>
+    </figure>
+    <figure class="cascade-item cascade-3" data-reveal data-delay="300">
+      <div class="bezel bezel-dark">
+        <div class="bezel-inner">
+          <img src="https://picsum.photos/seed/guzman-job-3/900/700" alt="" loading="lazy" />
+        </div>
+      </div>
+      <figcaption>Weekly lawn care — Delhi Twp.</figcaption>
+    </figure>
+    <figure class="cascade-item cascade-4" data-reveal data-delay="400">
+      <div class="bezel bezel-dark">
+        <div class="bezel-inner">
+          <img src="https://picsum.photos/seed/guzman-job-4/1400/700" alt="" loading="lazy" />
+        </div>
+      </div>
+      <figcaption>Tree shaping &amp; cleanup — Bath Twp.</figcaption>
+    </figure>
   </div>
 
-  <div class="gallery">
-    <figure class="gallery-item gallery-tall">
-      <img src="https://picsum.photos/seed/guzman-job1/900/1200" alt="Front-yard mulch bed install" loading="lazy" />
-      <figcaption>Front-yard mulch refresh</figcaption>
-    </figure>
-    <figure class="gallery-item">
-      <img src="https://picsum.photos/seed/guzman-job2/900/700" alt="Edged walkway and bed line" loading="lazy" />
-      <figcaption>Edged walkway &amp; bed line</figcaption>
-    </figure>
-    <figure class="gallery-item">
-      <img src="https://picsum.photos/seed/guzman-job3/900/700" alt="Mowed and trimmed yard" loading="lazy" />
-      <figcaption>Weekly lawn care</figcaption>
-    </figure>
-    <figure class="gallery-item gallery-wide">
-      <img src="https://picsum.photos/seed/guzman-job4/1400/700" alt="Mature tree pruning project" loading="lazy" />
-      <figcaption>Tree shaping &amp; cleanup</figcaption>
-    </figure>
-  </div>
-
-  <a href="https://www.facebook.com/" target="_blank" rel="noopener" class="link-on-dark">
-    See more on Facebook
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+  <a href="https://www.facebook.com/" target="_blank" rel="noopener" class="cta cta-on-dark" data-reveal>
+    <span class="cta-label">See more on Facebook</span>
+    <span class="cta-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+    </span>
   </a>
 </section>
 
-<!-- About -->
+<!-- ============================================================
+     ABOUT — Editorial split
+     ============================================================ -->
 <section id="about" class="section about">
   <div class="about-grid">
-    <div>
-      <span class="kicker">About · La familia</span>
-      <h2 class="h2">A small crew that <em>shows up.</em></h2>
+    <div class="about-copy" data-reveal>
+      <span class="eyebrow"><span class="eyebrow-dot"></span> About &nbsp;·&nbsp; <span class="i">La familia</span></span>
+      <h2 class="h2">A small crew<br/>that <em>shows up.</em></h2>
       <p>
         Guzman Outdoors LLC is a family-run landscaping contractor based in
         Williamston, MI. We focus on the part most companies cut corners on:
-        the finish. Edged beds, clean borders, no debris left behind, no
-        chasing us to come back.
+        the finish. Edged beds, clean borders, no debris left behind,
+        no chasing us to come back.
       </p>
       <p>
         Whether it's a recurring mow or a full front-yard rebuild, we'll come
-        out, listen, and put together an honest quote — and the quote is
-        always free. <em>Hablamos español.</em>
+        out, listen, and put together an honest quote — always free.
+        <span class="hand"><em>Hablamos español.</em></span>
       </p>
-      <div class="about-points">
-        <div><strong>Reliable.</strong> Same crew, every visit.</div>
-        <div><strong>Affordable.</strong> Quotes priced for the area, not the city.</div>
-        <div><strong>Profesional.</strong> Insured and licensed.</div>
-      </div>
+
+      <dl class="about-points">
+        <div>
+          <dt>Reliable</dt>
+          <dd>Same crew, every visit.</dd>
+        </div>
+        <div>
+          <dt>Affordable</dt>
+          <dd>Priced for the area, not the city.</dd>
+        </div>
+        <div>
+          <dt>Profesional</dt>
+          <dd>Insured &amp; licensed in Michigan.</dd>
+        </div>
+      </dl>
     </div>
-    <aside class="about-card">
-      <span class="about-card-corner" aria-hidden="true"></span>
-      <div class="about-card-row">
-        <span class="about-card-label">Call us</span>
-        <a class="about-card-value" href="tel:+15175550000">(517) 555-0000</a>
-      </div>
-      <div class="about-card-row">
-        <span class="about-card-label">Email</span>
-        <a class="about-card-value" href="mailto:hello@guzmanoutdoors.com">hello@guzmanoutdoors.com</a>
-      </div>
-      <div class="about-card-row">
-        <span class="about-card-label">Hours</span>
-        <span class="about-card-value">Mon–Sat · 7a–7p</span>
-      </div>
-      <div class="about-card-row">
-        <span class="about-card-label">Facebook</span>
-        <a class="about-card-value" href="https://www.facebook.com/" target="_blank" rel="noopener">@GuzmanOutdoorsLLC</a>
+
+    <aside class="about-card" data-reveal data-delay="200">
+      <div class="bezel">
+        <div class="bezel-inner about-card-inner">
+          <div class="about-card-head">
+            <span class="eyebrow eyebrow-on-dark"><span class="eyebrow-dot"></span> Get in touch</span>
+            <p class="about-card-tag">Open Mon–Sat, 7a–7p</p>
+          </div>
+
+          <div class="about-card-row">
+            <span class="about-card-label">Call</span>
+            <a class="about-card-value" href="tel:+15175550000">(517) 555-0000 <span class="value-arrow">↗</span></a>
+          </div>
+          <div class="about-card-row">
+            <span class="about-card-label">Email</span>
+            <a class="about-card-value" href="mailto:hello@guzmanoutdoors.com">hello@guzmanoutdoors.com <span class="value-arrow">↗</span></a>
+          </div>
+          <div class="about-card-row">
+            <span class="about-card-label">Facebook</span>
+            <a class="about-card-value" href="https://www.facebook.com/" target="_blank" rel="noopener">@GuzmanOutdoorsLLC <span class="value-arrow">↗</span></a>
+          </div>
+
+          <a href="#quote" class="cta cta-full cta-light">
+            <span class="cta-label">Request a free quote</span>
+            <span class="cta-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+          </a>
+        </div>
       </div>
     </aside>
   </div>
 </section>
 
-<!-- Quote Form -->
+<!-- ============================================================
+     QUOTE FORM
+     ============================================================ -->
 <section id="quote" class="section section-tint quote">
   <div class="quote-grid">
-    <div class="quote-intro">
-      <span class="kicker">Free Quote · Sin compromiso</span>
-      <h2 class="h2">Tell us about the job.</h2>
+    <header class="quote-intro" data-reveal>
+      <span class="eyebrow"><span class="eyebrow-dot"></span> Free quote &nbsp;·&nbsp; <span class="i">Sin compromiso</span></span>
+      <h2 class="h2">Tell us about<br/>the <em>job.</em></h2>
       <p>
         Fill this out and we'll get back to you — usually same day. If you
         used the acreage tool above, the measurement is already attached.
       </p>
 
-      <ul class="quote-steps">
-        <li><span class="step-n">1</span><div><strong>Send the form.</strong> Tell us what you need.</div></li>
-        <li><span class="step-n">2</span><div><strong>We'll call or text.</strong> Confirm details, schedule a look.</div></li>
-        <li><span class="step-n">3</span><div><strong>Free written quote.</strong> No pressure, no surprises.</div></li>
-      </ul>
-    </div>
+      <ol class="quote-steps">
+        <li>
+          <span class="quote-step-n">01</span>
+          <div><strong>Send the form.</strong> Tell us what you need.</div>
+        </li>
+        <li>
+          <span class="quote-step-n">02</span>
+          <div><strong>We'll call or text.</strong> Confirm details, schedule a look.</div>
+        </li>
+        <li>
+          <span class="quote-step-n">03</span>
+          <div><strong>Free written quote.</strong> No pressure, no surprises.</div>
+        </li>
+      </ol>
+    </header>
 
-    <form class="quote-form" id="quoteForm" novalidate>
-      <div class="form-row">
-        <label class="field">
-          <span class="field-label">Full name</span>
-          <input type="text" name="name" id="f_name" required autocomplete="name" placeholder="Jasmin Ortega" />
-          <span class="field-error" data-for="f_name"></span>
-        </label>
-        <label class="field">
-          <span class="field-label">Phone</span>
-          <input type="tel" name="phone" id="f_phone" required autocomplete="tel" placeholder="(517) 555-0142" />
-          <span class="field-error" data-for="f_phone"></span>
-        </label>
-      </div>
+    <form class="quote-form" id="quoteForm" novalidate data-reveal data-delay="200">
+      <div class="bezel">
+        <div class="bezel-inner quote-form-inner">
+          <div class="form-row">
+            <label class="field">
+              <span class="field-label">Full name</span>
+              <input type="text" name="name" id="f_name" required autocomplete="name" placeholder="Jasmin Ortega" />
+              <span class="field-error" data-for="f_name"></span>
+            </label>
+            <label class="field">
+              <span class="field-label">Phone</span>
+              <input type="tel" name="phone" id="f_phone" required autocomplete="tel" placeholder="(517) 555-0142" />
+              <span class="field-error" data-for="f_phone"></span>
+            </label>
+          </div>
 
-      <div class="form-row">
-        <label class="field">
-          <span class="field-label">Email <span class="field-opt">(optional)</span></span>
-          <input type="email" name="email" id="f_email" autocomplete="email" placeholder="you@example.com" />
-        </label>
-        <label class="field">
-          <span class="field-label">Service address</span>
-          <input type="text" name="address" id="f_address" required autocomplete="street-address" placeholder="Street, City, MI" />
-          <span class="field-error" data-for="f_address"></span>
-        </label>
-      </div>
+          <div class="form-row">
+            <label class="field">
+              <span class="field-label">Email <span class="field-opt">— optional</span></span>
+              <input type="email" name="email" id="f_email" autocomplete="email" placeholder="you@example.com" />
+            </label>
+            <label class="field">
+              <span class="field-label">Service address</span>
+              <input type="text" name="address" id="f_address" required autocomplete="street-address" placeholder="Street, City, MI" />
+              <span class="field-error" data-for="f_address"></span>
+            </label>
+          </div>
 
-      <fieldset class="field-group">
-        <legend class="field-label">What do you need? <span class="field-opt">(pick any)</span></legend>
-        <div class="checks">
-          <label class="check"><input type="checkbox" name="services" value="Landscaping" /><span>Landscaping</span></label>
-          <label class="check"><input type="checkbox" name="services" value="Mulching" /><span>Mulching</span></label>
-          <label class="check"><input type="checkbox" name="services" value="Front yard design" /><span>Front yard design</span></label>
-          <label class="check"><input type="checkbox" name="services" value="Lawn care" /><span>Lawn care</span></label>
-          <label class="check"><input type="checkbox" name="services" value="Tree service" /><span>Tree service</span></label>
-          <label class="check"><input type="checkbox" name="services" value="Cleanup" /><span>Cleanup</span></label>
+          <fieldset class="field-group">
+            <legend class="field-label">What do you need? <span class="field-opt">— pick any</span></legend>
+            <div class="checks">
+              <label class="check"><input type="checkbox" name="services" value="Landscaping" /><span>Landscaping</span></label>
+              <label class="check"><input type="checkbox" name="services" value="Mulching" /><span>Mulching</span></label>
+              <label class="check"><input type="checkbox" name="services" value="Front yard design" /><span>Front yard design</span></label>
+              <label class="check"><input type="checkbox" name="services" value="Lawn care" /><span>Lawn care</span></label>
+              <label class="check"><input type="checkbox" name="services" value="Tree service" /><span>Tree service</span></label>
+              <label class="check"><input type="checkbox" name="services" value="Cleanup" /><span>Cleanup</span></label>
+            </div>
+          </fieldset>
+
+          <div class="form-row">
+            <label class="field">
+              <span class="field-label">Timing</span>
+              <select name="timing" id="f_timing">
+                <option value="ASAP">As soon as possible</option>
+                <option value="Within 2 weeks">Within 2 weeks</option>
+                <option value="This month">This month</option>
+                <option value="Just exploring">Just exploring</option>
+              </select>
+            </label>
+            <label class="field">
+              <span class="field-label">Measured area <span class="field-opt">— auto from tool</span></span>
+              <input type="text" name="measured_area" id="f_area" placeholder="Use the acreage tool above" readonly />
+            </label>
+          </div>
+
+          <label class="field">
+            <span class="field-label">Project details</span>
+            <textarea name="notes" id="f_notes" rows="4" placeholder="A few sentences about the property, the look you want, gate or access notes — anything we should know."></textarea>
+          </label>
+
+          <input type="text" name="company" tabindex="-1" autocomplete="off" class="honeypot" aria-hidden="true" />
+
+          <div class="form-foot">
+            <button type="submit" class="cta cta-lg cta-full" id="quoteSubmit">
+              <span class="cta-label">Send my free quote request</span>
+              <span class="cta-icon">
+                <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                <svg class="btn-spinner" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12a9 9 0 1 1-6.2-8.55"/></svg>
+              </span>
+            </button>
+            <p class="form-foot-note">We never share your info. Quotes are free with no obligation.</p>
+          </div>
+
+          <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
         </div>
-      </fieldset>
-
-      <div class="form-row">
-        <label class="field">
-          <span class="field-label">Timing</span>
-          <select name="timing" id="f_timing">
-            <option value="ASAP">As soon as possible</option>
-            <option value="Within 2 weeks">Within 2 weeks</option>
-            <option value="This month">This month</option>
-            <option value="Just exploring">Just getting quotes</option>
-          </select>
-        </label>
-        <label class="field">
-          <span class="field-label">Approximate area <span class="field-opt">(auto-fills from tool)</span></span>
-          <input type="text" name="measured_area" id="f_area" placeholder="e.g. 6,200 sq ft · 0.142 ac" readonly />
-        </label>
       </div>
-
-      <label class="field">
-        <span class="field-label">Project details</span>
-        <textarea name="notes" id="f_notes" rows="4" placeholder="A few sentences about the property, the look you want, gates / access notes, anything we should know."></textarea>
-      </label>
-
-      <input type="text" name="company" tabindex="-1" autocomplete="off" class="honeypot" aria-hidden="true" />
-
-      <div class="form-foot">
-        <button type="submit" class="btn btn-primary btn-lg" id="quoteSubmit">
-          <span class="btn-label">Send my free quote request</span>
-          <svg class="btn-spinner" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M21 12a9 9 0 1 1-6.2-8.55"/></svg>
-        </button>
-        <p class="form-foot-note">We'll never share your info. Quotes are free and there's no obligation.</p>
-      </div>
-
-      <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
     </form>
   </div>
 </section>
@@ -556,26 +647,18 @@
 </main>
 
 <footer class="footer">
-  <!-- decorative scallop -->
-  <div class="footer-scallop" aria-hidden="true">
-    <svg viewBox="0 0 1200 24" preserveAspectRatio="none">
-      <path d="M0 24 Q30 0 60 24 T120 24 T180 24 T240 24 T300 24 T360 24 T420 24 T480 24 T540 24 T600 24 T660 24 T720 24 T780 24 T840 24 T900 24 T960 24 T1020 24 T1080 24 T1140 24 T1200 24 V0 H0 Z" fill="currentColor"/>
-    </svg>
-  </div>
-
   <div class="footer-inner">
     <div class="footer-brand">
-      <span class="brand-mark" aria-hidden="true">
-        <svg viewBox="0 0 40 40" width="36" height="36">
-          <circle cx="20" cy="20" r="20" fill="#e0a629"/>
-          <path d="M20 8c-3 0-5 2-5 5v15a5 5 0 0 0 10 0v-15c0-3-2-5-5-5z" fill="#2f5d3a"/>
-          <circle cx="20" cy="32" r="2" fill="#d04a2c"/>
+      <span class="nav-mark" aria-hidden="true">
+        <svg viewBox="0 0 28 28">
+          <path d="M14 6v18 M14 14c-3-1-5-3-6-7 3 1 5 3 6 7z M14 14c3-1 5-3 6-7-3 1-5 3-6 7z M14 19c-4-1-7-3-9-7 4 1 7 3 9 7z M14 19c4-1 7-3 9-7-4 1-7 3-9 7z"
+                stroke="currentColor" stroke-width="1.25" stroke-linecap="round" fill="none"/>
         </svg>
       </span>
       <div>
-        <div class="footer-name">Guzman Outdoors LLC</div>
-        <div class="footer-tag">Landscaping · Lawn · Tree Service</div>
-        <div class="footer-tag footer-tag-es">Familia · Trabajo · Orgullo</div>
+        <div class="footer-name">Guzman Outdoors</div>
+        <div class="footer-tag">Landscaping &middot; Lawn &middot; Tree</div>
+        <div class="footer-script"><em>Familia · Trabajo · Orgullo</em></div>
       </div>
     </div>
 
@@ -584,19 +667,19 @@
         <div class="footer-col-title">Services</div>
         <ul>
           <li>Landscaping</li>
-          <li>Mulching</li>
           <li>Front yard design</li>
+          <li>Mulching</li>
           <li>Lawn care</li>
           <li>Tree service</li>
         </ul>
       </div>
       <div>
-        <div class="footer-col-title">Service area</div>
+        <div class="footer-col-title">Area</div>
         <ul>
-          <li>Williamston, MI</li>
-          <li>Webberville Village</li>
-          <li>Delhi Charter Twp.</li>
-          <li>Mason · Bath · Lansing Twp.</li>
+          <li>Williamston</li>
+          <li>Webberville</li>
+          <li>Mason &middot; Delhi Twp.</li>
+          <li>Bath &middot; Lansing Twp.</li>
         </ul>
       </div>
       <div>
@@ -604,15 +687,15 @@
         <ul>
           <li><a href="tel:+15175550000">(517) 555-0000</a></li>
           <li><a href="mailto:hello@guzmanoutdoors.com">hello@guzmanoutdoors.com</a></li>
-          <li><a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook ↗</a></li>
         </ul>
       </div>
     </div>
   </div>
 
   <div class="footer-base">
-    <span>© <span id="year"></span> Guzman Outdoors LLC · Williamston, MI</span>
-    <span class="footer-fine">Licensed &amp; insured · Hecho con orgullo</span>
+    <span>© <span id="year"></span> Guzman Outdoors LLC &middot; Williamston, MI</span>
+    <span class="footer-fine">Licensed &amp; insured &middot; <em>Hecho con orgullo</em></span>
   </div>
 </footer>
 

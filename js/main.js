@@ -1,34 +1,82 @@
 /* =============================================================
    Guzman Outdoors — site interactions
-   - Mobile nav toggle
-   - Quote form: client-side validation + Formspree submit
-   - Year stamp in footer
+   - Footer year stamp
+   - Scroll-detect for nav shadow lift
+   - Mobile menu (hamburger morph + staggered overlay reveal)
+   - Scroll-reveal IntersectionObserver
+   - Quote form: client validation, honeypot, Formspree-ready
    ============================================================= */
 (function () {
   'use strict';
 
-  // Footer year
+  // -------- Footer year --------
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
-  // Mobile nav
+  // -------- Nav scroll state --------
   const nav = document.getElementById('nav');
+  const onScroll = () => {
+    if (!nav) return;
+    if (window.scrollY > 8) nav.classList.add('is-scrolled');
+    else nav.classList.remove('is-scrolled');
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // -------- Mobile menu (morph + overlay) --------
   const navToggle = document.getElementById('navToggle');
-  if (nav && navToggle) {
-    navToggle.addEventListener('click', () => {
-      const open = nav.classList.toggle('is-open');
-      navToggle.setAttribute('aria-expanded', String(open));
-    });
-    nav.querySelectorAll('.nav-links a').forEach((a) => {
-      a.addEventListener('click', () => {
-        nav.classList.remove('is-open');
-        navToggle.setAttribute('aria-expanded', 'false');
-      });
-    });
+  const navOverlay = document.getElementById('navOverlay');
+
+  function setMenu(open) {
+    if (!nav || !navOverlay || !navToggle) return;
+    nav.classList.toggle('is-open', open);
+    navOverlay.classList.toggle('is-open', open);
+    navOverlay.setAttribute('aria-hidden', String(!open));
+    navToggle.setAttribute('aria-expanded', String(open));
+    document.body.classList.toggle('menu-open', open);
   }
 
-  // Quote form
-  // To go live, replace this with your Formspree (or similar) endpoint:
+  if (navToggle) {
+    navToggle.addEventListener('click', () => {
+      const isOpen = nav.classList.contains('is-open');
+      setMenu(!isOpen);
+    });
+  }
+  if (navOverlay) {
+    navOverlay.querySelectorAll('a').forEach((a) => {
+      a.addEventListener('click', () => setMenu(false));
+    });
+  }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && nav && nav.classList.contains('is-open')) {
+      setMenu(false);
+    }
+  });
+
+  // -------- Scroll-reveal --------
+  // Mark elements with data-reveal; they fade/blur in as they enter view.
+  // We unobserve after first reveal to avoid re-triggering.
+  const reveals = document.querySelectorAll('[data-reveal]');
+  if ('IntersectionObserver' in window && reveals.length) {
+    const io = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+    );
+    reveals.forEach((el) => io.observe(el));
+  } else {
+    // Fallback: reveal everything immediately
+    reveals.forEach((el) => el.classList.add('is-visible'));
+  }
+
+  // -------- Quote form --------
+  // To go live, replace this with your Formspree endpoint id:
   //   https://formspree.io/f/XXXXXXXX
   const FORMSPREE_ENDPOINT = 'https://formspree.io/f/REPLACE_WITH_YOUR_ID';
 
@@ -45,10 +93,13 @@
     if (err) err.textContent = msg;
   }
   function clearErrors() {
+    if (!form) return;
     form.querySelectorAll('.field.is-invalid').forEach((f) => f.classList.remove('is-invalid'));
     form.querySelectorAll('.field-error').forEach((e) => (e.textContent = ''));
-    status.textContent = '';
-    status.classList.remove('is-ok', 'is-err');
+    if (status) {
+      status.textContent = '';
+      status.classList.remove('is-ok', 'is-err');
+    }
   }
 
   function validate(data) {
@@ -74,8 +125,7 @@
       clearErrors();
 
       const fd = new FormData(form);
-      // Honeypot — silent drop
-      if (fd.get('company')) return;
+      if (fd.get('company')) return; // honeypot
 
       const services = fd.getAll('services');
       const data = {
@@ -91,16 +141,17 @@
       };
 
       if (!validate(data)) {
-        status.textContent = 'Please fix the highlighted fields.';
-        status.classList.add('is-err');
+        if (status) {
+          status.textContent = 'Please fix the highlighted fields.';
+          status.classList.add('is-err');
+        }
         return;
       }
 
       submitBtn.classList.add('is-loading');
       submitBtn.disabled = true;
 
-      // If the Formspree endpoint hasn't been configured, fall back to a
-      // mailto: that pre-fills an email so the form still works on day one.
+      // Fallback if Formspree endpoint hasn't been set yet
       if (FORMSPREE_ENDPOINT.includes('REPLACE_WITH_YOUR_ID')) {
         const body = [
           `Name: ${data.name}`,
@@ -119,8 +170,10 @@
           '?subject=' + encodeURIComponent(data._subject) +
           '&body=' + encodeURIComponent(body);
         window.location.href = mailto;
-        status.textContent = 'Opening your email app… if it didn\'t open, call (517) 555-0000.';
-        status.classList.add('is-ok');
+        if (status) {
+          status.textContent = "Opening your email app… if it didn't, call (517) 555-0000.";
+          status.classList.add('is-ok');
+        }
         submitBtn.classList.remove('is-loading');
         submitBtn.disabled = false;
         return;
@@ -134,16 +187,22 @@
         });
         if (res.ok) {
           form.reset();
-          status.textContent = 'Got it — we\'ll be in touch shortly. Thank you!';
-          status.classList.add('is-ok');
+          if (status) {
+            status.textContent = "Got it — we'll be in touch shortly. Thank you!";
+            status.classList.add('is-ok');
+          }
         } else {
           const j = await res.json().catch(() => ({}));
-          status.textContent = j.error || 'Something went wrong. Please call (517) 555-0000.';
-          status.classList.add('is-err');
+          if (status) {
+            status.textContent = j.error || 'Something went wrong. Please call (517) 555-0000.';
+            status.classList.add('is-err');
+          }
         }
       } catch (err) {
-        status.textContent = 'Network error — please try again or call (517) 555-0000.';
-        status.classList.add('is-err');
+        if (status) {
+          status.textContent = 'Network error — please try again or call (517) 555-0000.';
+          status.classList.add('is-err');
+        }
       } finally {
         submitBtn.classList.remove('is-loading');
         submitBtn.disabled = false;

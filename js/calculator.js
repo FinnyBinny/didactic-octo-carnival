@@ -24,7 +24,7 @@
   }
 
   const PALETTE = [
-    '#d04a2c', '#1e6091', '#e0a629', '#2f5d3a', '#d63f6e', '#7a3b1a'
+    '#B0492A', '#3A6E8F', '#C99544', '#5F7A5C', '#B85574', '#7A4F2E'
   ];
 
   // Williamston, MI default view
@@ -58,13 +58,13 @@
       snappable: true,
       allowSelfIntersection: false,
       finishOn: 'dblclick',
-      templineStyle: { color: '#d04a2c', weight: 2, dashArray: '4 4' },
-      hintlineStyle: { color: '#d04a2c', weight: 2, dashArray: '4 4' },
+      templineStyle: { color: '#B0492A', weight: 2, dashArray: '4 4' },
+      hintlineStyle: { color: '#B0492A', weight: 2, dashArray: '4 4' },
       pathOptions: {
-        color: '#d04a2c',
-        weight: 2.5,
-        fillColor: '#d04a2c',
-        fillOpacity: 0.3,
+        color: '#B0492A',
+        weight: 2,
+        fillColor: '#B0492A',
+        fillOpacity: 0.28,
       },
     });
   }
@@ -344,7 +344,7 @@
         icon: L.divIcon({
           className: 'addr-marker',
           html:
-            '<div style="width:20px;height:20px;border-radius:50%;background:#d04a2c;border:3px solid #fdf6e9;box-shadow:0 4px 14px rgba(0,0,0,0.4);"></div>',
+            '<div style="width:18px;height:18px;border-radius:50%;background:#B0492A;border:3px solid #FAF6EE;box-shadow:0 6px 16px rgba(20,16,12,0.45);"></div>',
           iconSize: [20, 20],
           iconAnchor: [10, 10],
         }),
